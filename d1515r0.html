@@ -1229,7 +1229,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 65b7ddcaf0f114f1f4fea72bbdeb983fe6805e0b" name="generator">
   <link href="https://isocpp.org/favicon.ico" rel="icon">
-  <meta content="d413c4b6ab4527602049d407bfedd7c04210225b" name="document-revision">
+  <meta content="efc17aee8a01de5f184226aed6d495f290b5ae4c" name="document-revision">
 <style>
 pre {
   margin-top: 0px;
@@ -1506,14 +1506,17 @@ point, that is, it is a value in the ranges of integers 0 to D7FF<sub>16</sub> a
 Unicode scalar values. However, there are other encoding formats in use that are
 able to encode the entire range of code points, as is the case with <a data-link-type="biblio" href="#biblio-wtf-8">[WTF-8]</a> or
 of Windows filenames and JavaScript strings.</p>
-   <p>WTF-8 may seem like an obscure format, but it has two rather useful properties:</p>
-   <ul>
-    <li data-md>
-     <p>it can losslessly represent strings from systems that allow unpaired
-  surrogates, like Windows filenames or JavaScript strings; and</p>
-    <li data-md>
-     <p>the conversion from UTF-8 to WTF-8 is a lossless identity conversion.</p>
-   </ul>
+   <p>The Unicode standard explicitly acknowledges and allows this in <strong>Unicode
+strings</strong>:</p>
+   <blockquote>
+    <p>Depending on the programming environment, a Unicode string may or may not be
+required to be in the corresponding Unicode encoding form. For example,
+strings in Java, C#, or ECMAScript are Unicode 16-bit strings, but are not
+necessarily well-formed UTF-16 sequences.</p>
+    <p>[...]</p>
+    <p>Whenever such strings are specified to be in a particular Unicode encoding
+form—<wbr>even one with the same code unit size—<wbr>the string must not violate the requirements of that encoding form.</p>
+   </blockquote>
    <h2 class="heading settled" data-level="3" id="tradeoff"><span class="secno">3. </span><span class="content">The tradeoff</span><a class="self-link" href="#tradeoff"></a></h2>
    <p><strong class="advisement"> When designing APIs, SG16 should take in consideration whether to
 give prominence to code points or to scalar values.</strong></p>

@@ -37,11 +37,20 @@ Unicode scalar values. However, there are other encoding formats in use that are
 able to encode the entire range of code points, as is the case with [[WTF-8]] or
 of Windows filenames and JavaScript strings.
 
-WTF-8 may seem like an obscure format, but it has two rather useful properties:
+The Unicode standard explicitly acknowledges and allows this in **Unicode
+strings**:
 
-- it can losslessly represent strings from systems that allow unpaired
-  surrogates, like Windows filenames or JavaScript strings; and
-- the conversion from UTF-8 to WTF-8 is a lossless identity conversion.
+> Depending on the programming environment, a Unicode string may or may not be
+> required to be in the corresponding Unicode encoding form. For example,
+> strings in Java, C#, or ECMAScript are Unicode 16-bit strings, but are not
+> necessarily well-formed UTF-16 sequences.
+>
+> [...]
+>
+> Whenever such strings are specified to be in a particular Unicode encoding
+> form--
+> even one with the same code unit size--
+> the string must not violate the requirements of that encoding form.
 
 # The tradeoff # {#tradeoff}
 
