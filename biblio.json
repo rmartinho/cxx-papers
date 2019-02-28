@@ -1,0 +1,14 @@
+{
+    "uni-gloss": {
+        "title": "Glossary of Unicode Terms",
+        "href": "https://unicode.org/glossary"
+    },
+    "wtf-8": {
+        "title": "The WTF-8 encoding",
+        "href": "https://simonsapin.github.io/wtf-8/",
+        "authors": [
+            "Simon Sapin"
+        ],
+        "date": "12 May 2018"
+    }
+}
