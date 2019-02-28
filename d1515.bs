@@ -55,7 +55,7 @@ strings**:
 # The tradeoff # {#tradeoff}
 
 Advisement: When designing APIs, SG16 should take in consideration whether to
-give prominence to code points or to scalar values.
+give prominence to code points and/or to scalar values.
 
 ## We like code points ## {#code-points}
 
