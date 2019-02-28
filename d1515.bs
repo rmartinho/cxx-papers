@@ -32,7 +32,7 @@ and E000<sub>16</sub> to 10FFFF<sub>16</sub>.
 
 # Does it matter? # {#why}
 
-All of the UTF encodings in [[Unicode]] as defined to support only the ranges of
+All of the UTF encodings in [[Unicode]] are defined to support only the ranges of
 Unicode scalar values. However, there are other encoding formats in use that are
 able to encode the entire range of code points, as is the case with [[WTF-8]] or
 of Windows filenames and JavaScript strings.
