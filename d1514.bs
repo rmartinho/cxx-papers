@@ -1,0 +1,25 @@
+<pre class="metadata">
+Title: Overload assigning operator[] separately
+Shortname: D1514
+Revision: 0
+Status: D
+Date: 2019-02-28
+Editor: R. Martinho Fernandes, cpp@rmf.io
+Audience: SG17, SG18
+Group: WG21
+ED:
+!This version: <a href="https://wg21.link/p1514r0">https://wg21.link/p1514r0</a>
+!Latest version: <a href="https://wg21.link/p1514">https://wg21.link/p1514</a>
+!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
+Markup Shorthands: markdown yes, biblio yes, markup yes
+Abstract: Typically operator[] is overloaded to fulfill both reading and writing
+          purposes. This is awkward in some situations, most notably with
+          `std::map`. This paper proposes an alternative where these two
+          responsibilities can be split.
+</pre>
+
+<pre class="include">
+path: wording_style.bs
+</pre>
+
+

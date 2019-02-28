@@ -1,0 +1,22 @@
+<pre class="metadata">
+Title: 
+Shortname: D1106
+Revision: 0
+Status: D
+Date: 2019-02-28
+Editor: R. Martinho Fernandes, cpp@rmf.io
+Audience:
+Group: WG21
+ED:
+!This version: <a href="https://wg21.link/p1106r0">https://wg21.link/p1106r0</a>
+!Latest version: <a href="https://wg21.link/p1106">https://wg21.link/p1106</a>
+!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
+Markup Shorthands: markdown yes, biblio yes, markup yes
+Abstract: 
+</pre>
+
+<pre class="include">
+path: wording_style.bs
+</pre>
+
+

@@ -1,0 +1,26 @@
+<pre class="metadata">
+Title: std::audio + coroutines
+Shortname: D1516
+Revision: 0
+Status: D
+Date: 2019-02-28
+Editor: R. Martinho Fernandes, cpp@rmf.io
+Audience: SG13
+Group: WG21
+URL:
+!This version: <a href="https://wg21.link/p1516r0">https://wg21.link/p1516r0</a>
+!Latest version: <a href="https://wg21.link/p1516">https://wg21.link/p1516</a>
+!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
+Markup Shorthands: markdown yes, biblio yes, markup yes
+Abstract: Following the presentation of P1386R0 in Kona, we discussed an
+          alternative interface for the audio callback mechanism based on
+          coroutines. This proposal explores that design space.
+</pre>
+
+<pre class="include">
+path: wording_style.bs
+</pre>
+
+
+
+

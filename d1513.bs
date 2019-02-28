@@ -1,0 +1,25 @@
+<pre class="metadata">
+Title: Big Integers
+Shortname: D1513
+Revision: 0
+Status: D
+Date: 2019-02-28
+Editor: R. Martinho Fernandes, cpp@rmf.io
+Audience: SG18, SG6
+Group: WG21
+ED:
+!This version: <a href="https://wg21.link/p1513r0">https://wg21.link/p1513r0</a>
+!Latest version: <a href="https://wg21.link/p1513">https://wg21.link/p1513</a>
+!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
+Markup Shorthands: markdown yes, biblio yes, markup yes
+Abstract: C++ supports arithmetic on fixed-sized integers; for many applications
+          this is enough. This paper proposes the addition of arbitrary-sized
+          integers, aka "bigints", to the standard library.
+</pre>
+
+<pre class="include">
+path: wording_style.bs
+</pre>
+
+
+
