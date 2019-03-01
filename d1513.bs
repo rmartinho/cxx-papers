@@ -13,8 +13,9 @@ ED:
 !Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
 Markup Shorthands: markdown yes, biblio yes, markup yes
 Abstract: C++ supports arithmetic on fixed-sized integers; for many applications
-          this is enough. This paper proposes the addition of arbitrary-sized
-          integers, aka "bigints", to the standard library.
+          this is enough. For when it is not enough, this paper proposes the
+          addition of arbitrary-sized integers, aka "bigints", to the standard
+          library.
 </pre>
 
 <pre class="include">

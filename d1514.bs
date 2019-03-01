@@ -3,7 +3,7 @@ Title: Overload assigning operator[] separately
 Shortname: D1514
 Revision: 0
 Status: D
-Date: 2019-02-28
+Date: 2019-03-01
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG17, SG18
 Group: WG21
@@ -22,4 +22,17 @@ Abstract: Typically operator[] is overloaded to fulfill both reading and writing
 path: wording_style.bs
 </pre>
 
+# Motivation # {#motivation}
+
+At present, `std::map::operator[]` will default-construct a value if none exists
+for the given key. When this is not possible, or when it is undesirable, there
+are two alternatives:
+
+- using `std::map::at` when only reading the value is desired;
+- using `std::map::insert_or_assign` when one would assign to the result of
+  `operator[]`.
+
+Ideally, it would be possible to have the latter be spelled as `m[k] = v;`
+instead of `m.insert_or_assign(k, v)`. For this purpose, we propose the ability
+to overload this index-assignment operation, spelled as `operator[]=`.
 

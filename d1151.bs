@@ -1,18 +1,20 @@
 <pre class="metadata">
-Title: 
+Title: Entry API for maps
 Shortname: D1151
 Revision: 0
 Status: D
-Date: 2019-02-28
+Date: 2019-03-01
 Editor: R. Martinho Fernandes, cpp@rmf.io
-Audience:
+Audience: SG18
 Group: WG21
 ED:
 !This version: <a href="https://wg21.link/p1151r0">https://wg21.link/p1151r0</a>
 !Latest version: <a href="https://wg21.link/p1151">https://wg21.link/p1151</a>
 !Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
 Markup Shorthands: markdown yes, biblio yes, markup yes
-Abstract: 
+Abstract: C++ associative containers can sometimes be clunky to use in many
+          common patterns. This paper proposes the addition of APIs for
+          streamlining some of these patterns.
 </pre>
 
 <pre class="include">
