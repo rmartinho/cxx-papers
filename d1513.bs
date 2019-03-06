@@ -10,7 +10,6 @@ Group: WG21
 ED:
 !This version: <a href="https://wg21.link/p1513r0">https://wg21.link/p1513r0</a>
 !Latest version: <a href="https://wg21.link/p1513">https://wg21.link/p1513</a>
-!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
 Markup Shorthands: markdown yes, biblio yes, markup yes
 Abstract: C++ supports arithmetic on fixed-sized integers; for many applications
           this is enough. For when it is not enough, this paper proposes the

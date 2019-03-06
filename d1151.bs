@@ -10,7 +10,6 @@ Group: WG21
 ED:
 !This version: <a href="https://wg21.link/p1151r0">https://wg21.link/p1151r0</a>
 !Latest version: <a href="https://wg21.link/p1151">https://wg21.link/p1151</a>
-!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
 Markup Shorthands: markdown yes, biblio yes, markup yes
 Abstract: C++ associative containers can sometimes be clunky to use in many
           common patterns. This paper proposes the addition of APIs for

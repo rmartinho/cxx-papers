@@ -7,10 +7,9 @@ Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG16
 Group: WG21
-URL:
+ED:
 !This version: <a href="https://wg21.link/p1515r0">https://wg21.link/p1515r0</a>
 !Latest version: <a href="https://wg21.link/p1515">https://wg21.link/p1515</a>
-!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
 Markup Shorthands: markdown yes, biblio yes, markup yes
 Abstract: This paper tries to frame a discussion around the question of whether
           SG16 should try to support code points or scalar values or both.

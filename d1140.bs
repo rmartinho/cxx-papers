@@ -10,7 +10,6 @@ Group: WG21
 ED:
 !This version: <a href="https://wg21.link/p1140r0">https://wg21.link/p1140r0</a>
 !Latest version: <a href="https://wg21.link/p1140">https://wg21.link/p1140</a>
-!Reply to: <a href="mailto:cpp@rmf.io">R. Martinho Fernandes &lt;cpp@rmf.io&gt;</a>
 Markup Shorthands: markdown yes, biblio yes, markup yes
 Abstract: C++ lambdas are rather handy tools, but their syntax is rather clunky
           and verbose. This paper attempts to establish a terser syntax for
