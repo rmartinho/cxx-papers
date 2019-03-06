@@ -3,7 +3,7 @@ Title: std::audio + coroutines
 Shortname: D1516
 Revision: 0
 Status: D
-Date: 2019-02-28
+Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG13
 Group: WG21
@@ -20,6 +20,8 @@ Abstract: Following the presentation of P1386R0 in Kona, we discussed an
 path: wording_style.bs
 </pre>
 
+# Appendix A: Revision History # {#changelog}
 
+## Revision 0 - 06 March 2019 ## {#changelog-r0}
 
-
+    Drafting

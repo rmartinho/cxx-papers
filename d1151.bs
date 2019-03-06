@@ -3,7 +3,7 @@ Title: Entry API for maps
 Shortname: D1151
 Revision: 0
 Status: D
-Date: 2019-03-01
+Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG18
 Group: WG21
@@ -20,3 +20,8 @@ Abstract: C++ associative containers can sometimes be clunky to use in many
 path: wording_style.bs
 </pre>
 
+# Appendix A: Revision History # {#changelog}
+
+## Revision 0 - 06 March 2019 ## {#changelog-r0}
+
+    Drafting

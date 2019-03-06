@@ -3,7 +3,7 @@ Title: Terse lambda syntax
 Shortname: D1140
 Revision: 0
 Status: D
-Date: 2019-03-01
+Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG17
 Group: WG21
@@ -20,4 +20,8 @@ Abstract: C++ lambdas are rather handy tools, but their syntax is rather clunky
 path: wording_style.bs
 </pre>
 
+# Appendix A: Revision History # {#changelog}
 
+## Revision 0 - 06 March 2019 ## {#changelog-r0}
+
+    Drafting

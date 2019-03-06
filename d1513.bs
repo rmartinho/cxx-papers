@@ -3,7 +3,7 @@ Title: Big Integers
 Shortname: D1513
 Revision: 0
 Status: D
-Date: 2019-02-28
+Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG18, SG6
 Group: WG21
@@ -21,5 +21,8 @@ Abstract: C++ supports arithmetic on fixed-sized integers; for many applications
 path: wording_style.bs
 </pre>
 
+# Appendix A: Revision History # {#changelog}
 
+## Revision 0 - 06 March 2019 ## {#changelog-r0}
 
+    Drafting
