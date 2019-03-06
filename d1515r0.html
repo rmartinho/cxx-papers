@@ -1229,7 +1229,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 65b7ddcaf0f114f1f4fea72bbdeb983fe6805e0b" name="generator">
   <link href="https://isocpp.org/favicon.ico" rel="icon">
-  <meta content="9248327a40e64b5e41d4f61abcf8efe2ba55e6d4" name="document-revision">
+  <meta content="64a72123ebe132da9eace75ef597700a53d0d28a" name="document-revision">
 <style>
 pre {
   margin-top: 0px;
@@ -1444,7 +1444,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">D1515R0<br>Code points, scalar values, UTF-8, and WTF-8</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Proposal, <time class="dt-updated" datetime="2019-02-28">2019-02-28</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Proposal, <time class="dt-updated" datetime="2019-03-06">2019-03-06</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Author:
@@ -1486,7 +1486,7 @@ pre .property::before, pre .property::after {
     <li>
      <a href="#changelog"><span class="secno"></span> <span class="content">Appendix A: Revision History</span></a>
      <ol class="toc">
-      <li><a href="#changelog-r0"><span class="secno"></span> <span class="content">Revision 0 - 28 February 2019</span></a>
+      <li><a href="#changelog-r0"><span class="secno"></span> <span class="content">Revision 0 - 06 March 2019</span></a>
      </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -1497,15 +1497,14 @@ pre .property::before, pre .property::after {
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="dfn"><span class="secno">1. </span><span class="content">Definitions</span><a class="self-link" href="#dfn"></a></h2>
-   <p>A <strong>code point</strong> is a value in the Unicode codespace, that is, it is a
+   <p>A Unicode <strong>code point</strong> is a value in the Unicode codespace, that is, it is a
 value in the range of integers from 0 to 10FFFF<sub>16</sub>.</p>
-   <p>A <strong>Unicode scalar value</strong> is a code point that is not a surrogate code
+   <p>A Unicode <strong>scalar value</strong> is a code point that is not a surrogate code
 point, that is, it is a value in the ranges of integers 0 to D7FF<sub>16</sub> and E000<sub>16</sub> to 10FFFF<sub>16</sub>.</p>
    <h2 class="heading settled" data-level="2" id="why"><span class="secno">2. </span><span class="content">Does it matter?</span><a class="self-link" href="#why"></a></h2>
-   <p>All of the UTF encodings in <a data-link-type="biblio" href="#biblio-unicode">[Unicode]</a> are defined to support only the ranges of
-Unicode scalar values. However, there are other encoding formats in use that are
-able to encode the entire range of code points, as is the case with <a data-link-type="biblio" href="#biblio-wtf-8">[WTF-8]</a> or
-of Windows filenames and JavaScript strings.</p>
+   <p>All of the UTF encodings in <a data-link-type="biblio" href="#biblio-unicode">[Unicode]</a> are defined to support only the ranges
+of scalar values. However, there are other encoding formats in use that are
+able to encode the entire range of code points, as is the case with <a data-link-type="biblio" href="#biblio-wtf-8">[WTF-8]</a> or of Windows filenames and JavaScript strings.</p>
    <p>The Unicode standard explicitly acknowledges and allows this in <strong>Unicode
 strings</strong>:</p>
    <blockquote>
@@ -1523,8 +1522,8 @@ give prominence to code points and/or to scalar values.</strong></p>
    <h3 class="heading settled" data-level="3.1" id="code-points"><span class="secno">3.1. </span><span class="content">We like code points</span><a class="self-link" href="#code-points"></a></h3>
    <p>Preferring code points supports lossless decoding of encodings that support
 unpaired surrogates. These encodings are usually hacks to handle idiosyncracies
-of particular systems, but there systems like that widely deployed; notorious
-offenders being JavaScript and Windows.</p>
+of particular systems, but such systems exist that are widely deployed;
+notorious offenders being JavaScript and Windows.</p>
    <p>On the other hand, for encodings that cannot encode unpaired surrogates, like UTF-8,
 UTF-16, and UTF-32, accepting code point streams as input means that error
 handling mechanisms must be invoked for dealing with surrogates in the input.</p>
@@ -1540,7 +1539,7 @@ handling mechanisms in order to produce scalar values.</p>
 described here to the user. The cost of this is an API that is more complex and
 less intuitive, and perhaps easier to misuse.</p>
    <h2 class="heading settled" id="changelog"><span class="content">Appendix A: Revision History</span><a class="self-link" href="#changelog"></a></h2>
-   <h3 class="heading settled" id="changelog-r0"><span class="content">Revision 0 - 28 February 2019</span><a class="self-link" href="#changelog-r0"></a></h3>
+   <h3 class="heading settled" id="changelog-r0"><span class="content">Revision 0 - 06 March 2019</span><a class="self-link" href="#changelog-r0"></a></h3>
    <p>Initial release.</p>
   </main>
 <script>

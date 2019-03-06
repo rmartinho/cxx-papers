@@ -3,7 +3,7 @@ Title: Code points, scalar values, UTF-8, and WTF-8
 Shortname: D1515
 Revision: 0
 Status: D
-Date: 2019-02-28
+Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG16
 Group: WG21
@@ -60,8 +60,8 @@ give prominence to code points and/or to scalar values.
 
 Preferring code points supports lossless decoding of encodings that support
 unpaired surrogates. These encodings are usually hacks to handle idiosyncracies
-of particular systems, but there systems like that widely deployed; notorious
-offenders being JavaScript and Windows.
+of particular systems, but such systems exist that are widely deployed;
+notorious offenders being JavaScript and Windows.
 
 On the other hand, for encodings that cannot encode unpaired surrogates, like UTF-8,
 UTF-16, and UTF-32, accepting code point streams as input means that error
@@ -85,6 +85,6 @@ less intuitive, and perhaps easier to misuse.
 
 # Appendix A: Revision History # {#changelog}
 
-## Revision 0 - 28 February 2019 ## {#changelog-r0}
+## Revision 0 - 06 March 2019 ## {#changelog-r0}
 
     Initial release.
