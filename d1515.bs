@@ -22,19 +22,19 @@ path: wording_style.bs
 
 # Definitions # {#dfn}
 
-A **code point** is a value in the Unicode codespace, that is, it is a
+A Unicode **code point** is a value in the Unicode codespace, that is, it is a
 value in the range of integers from 0 to 10FFFF<sub>16</sub>.
 
-A **Unicode scalar value** is a code point that is not a surrogate code
+A Unicode **scalar value** is a code point that is not a surrogate code
 point, that is, it is a value in the ranges of integers 0 to D7FF<sub>16</sub>
 and E000<sub>16</sub> to 10FFFF<sub>16</sub>.
 
 # Does it matter? # {#why}
 
-All of the UTF encodings in [[Unicode]] are defined to support only the ranges of
-Unicode scalar values. However, there are other encoding formats in use that are
-able to encode the entire range of code points, as is the case with [[WTF-8]] or
-of Windows filenames and JavaScript strings.
+All of the UTF encodings in [[Unicode]] are defined to support only the ranges
+of scalar values. However, there are other encoding formats in use that are
+able to encode the entire range of code points, as is the case with [[WTF-8]]
+or of Windows filenames and JavaScript strings.
 
 The Unicode standard explicitly acknowledges and allows this in **Unicode
 strings**:
