@@ -64,8 +64,8 @@ retrofitting standard library types with `operator[]=` overloads.
 
 If we were to add `std::map::operator[]=` and counterparts to the other
 associative containers, it would result in a behavioural change in existing
-code: expressions like `m[k] = v;` would now no longer
-default-construct-then-assign, but instead perform only a
+code: expressions like `m[k] = v;` would ,when the corresponding element does
+not exist, no longer default-construct-then-assign , but instead perform only a
 copy/move-construction. This is an observable difference in behaviour, and,
 while one might expect no significant difference from this change for most
 types, it is possible that some existing code would break.
