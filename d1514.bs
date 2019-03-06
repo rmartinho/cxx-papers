@@ -3,7 +3,7 @@ Title: Overload assigning operator[] separately
 Shortname: D1514
 Revision: 0
 Status: D
-Date: 2019-03-01
+Date: 2019-03-06
 Editor: R. Martinho Fernandes, cpp@rmf.io
 Audience: SG17, SG18
 Group: WG21
@@ -13,8 +13,8 @@ ED:
 Markup Shorthands: markdown yes, biblio yes, markup yes
 Abstract: Typically operator[] is overloaded to fulfill both reading and writing
           purposes. This is awkward in some situations, most notably with
-          `std::map`. This paper proposes an alternative where these two
-          responsibilities can be split.
+          <code>std::map</code>. This paper proposes an alternative where these
+          two responsibilities can be split.
 </pre>
 
 <pre class="include">
@@ -32,7 +32,50 @@ are two alternatives:
   `operator[]`.
 
 Ideally, it would be possible to have the latter be spelled as `m[k] = v;`
-instead of `m.insert_or_assign(k, v)`. For this purpose, we propose the ability
-to overload this index-assignment operation, spelled as `operator[]=`.
+instead of `m.insert_or_assign(k, v)`. This is a particularly natural syntax for
+this operation, as evidenced by usage in other programming languages (Python and
+C# are examples the author is particularly familiar with), and by the numerous
+examples of programmers being surprised when they realize that they cannot use
+this syntax unless their types are default-constructible.
 
+# The proposal # {#proposal}
 
+We propose the ability to overload this index-assignment operation, with an
+operator overload spelled as `operator[]=`.
+
+With this proposal, when a class overloads `operator[]=`, expressions of the
+form `x[i] = y`, where `x` is an expression of that type, become equivalent to
+`x.operator[]=(i, y)`.  If the class does not overload `operator[]=`, then the
+expression is evaluated as it would be before this proposal, using `operator[]`
+and `operator=` separately.
+
+With this, the users of the class can use the natural syntax for
+insert-or-assign, and the implementer does not need to require
+default-constructibility, nor do they need to muck about with proxy types to
+obtain similar behaviour.
+
+# Retrofitting existing types # {#retrofitting}
+
+This new operator overload can be added to the language without changing the
+standard library as it still provides benefits to class authors.
+
+However, for the sake of completeness, we should consider the impact of
+retrofitting standard library types with `operator[]=` overloads.
+
+If we were to add `std::map::operator[]=` and counterparts to the other
+associative containers, it would result in a behavioural change in existing
+code: expressions like `m[k] = v;` would now no longer
+default-construct-then-assign, but instead perform only a
+copy/move-construction. This is an observable difference in behaviour, and,
+while one might expect no significant difference from this change for most
+types, it is possible that some existing code would break.
+
+We therefore do not propose retrofitting the standard library with this new
+operator overload, unless there is desire to do so on the part of LEWG, and
+there is evidence that little to no code would break.
+
+# Appendix A: Revision History # {#changelog}
+
+## Revision 0 - 06 March 2019 ## {#changelog-r0}
+
+    Drafting

@@ -1229,7 +1229,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 65b7ddcaf0f114f1f4fea72bbdeb983fe6805e0b" name="generator">
   <link href="https://isocpp.org/favicon.ico" rel="icon">
-  <meta content="5afc7c723d1484c8aec32b6841d143449969900e" name="document-revision">
+  <meta content="d9c0d7a486322015fa10b99d69dbbaaf84ba4fbf" name="document-revision">
 <style>
 pre {
   margin-top: 0px;
@@ -1502,7 +1502,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">D1514R0<br>Overload assigning operator[] separately</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Proposal, <time class="dt-updated" datetime="2019-03-01">2019-03-01</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Draft Proposal, <time class="dt-updated" datetime="2019-03-06">2019-03-06</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Author:
@@ -1525,14 +1525,20 @@ pre .property::before, pre .property::after {
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>Typically operator[] is overloaded to fulfill both reading and writing
 
-          purposes. This is awkward in some situations, most notably with
-          `std::map`. This paper proposes an alternative where these two
-          responsibilities can be split.</p>
+          purposes. This is awkward in some situations, most notably with <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>map</c-></code>. This paper proposes an alternative where these
+          two responsibilities can be split.</p>
   </div>
   <nav data-fill-with="table-of-contents" id="toc">
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
     <li><a href="#motivation"><span class="secno">1</span> <span class="content">Motivation</span></a>
+    <li><a href="#proposal"><span class="secno">2</span> <span class="content">The proposal</span></a>
+    <li><a href="#retrofitting"><span class="secno">3</span> <span class="content">Retrofitting existing types</span></a>
+    <li>
+     <a href="#changelog"><span class="secno"></span> <span class="content">Appendix A: Revision History</span></a>
+     <ol class="toc">
+      <li><a href="#changelog-r0"><span class="secno"></span> <span class="content">Revision 0 - 06 March 2019</span></a>
+     </ol>
    </ol>
   </nav>
   <main>
@@ -1546,8 +1552,39 @@ are two alternatives:</p>
     <li data-md>
      <p>using <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>map</c-><c- o>::</c-><c- n>insert_or_assign</c-></code> when one would assign to the result of <code class="highlight"><c- k>operator</c-><c- p>[]</c-></code>.</p>
    </ul>
-   <p>Ideally, it would be possible to have the latter be spelled as <code class="highlight"><c- n>m</c-><c- p>[</c-><c- n>k</c-><c- p>]</c-> <c- o>=</c-> <c- n>v</c-><c- p>;</c-></code> instead of <code class="highlight"><c- n>m</c-><c- p>.</c-><c- n>insert_or_assign</c-><c- p>(</c-><c- n>k</c-><c- p>,</c-> <c- n>v</c-><c- p>)</c-></code>. For this purpose, we propose the ability
-to overload this index-assignment operation, spelled as <code class="highlight"><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code>.</p>
+   <p>Ideally, it would be possible to have the latter be spelled as <code class="highlight"><c- n>m</c-><c- p>[</c-><c- n>k</c-><c- p>]</c-> <c- o>=</c-> <c- n>v</c-><c- p>;</c-></code> instead of <code class="highlight"><c- n>m</c-><c- p>.</c-><c- n>insert_or_assign</c-><c- p>(</c-><c- n>k</c-><c- p>,</c-> <c- n>v</c-><c- p>)</c-></code>. This is a particularly natural syntax for
+this operation, as evidenced by usage in other programming languages (Python and
+C# are examples the author is particularly familiar with), and by the numerous
+examples of programmers being surprised when they realize that they cannot use
+this syntax unless their types are default-constructible.</p>
+   <h2 class="heading settled" data-level="2" id="proposal"><span class="secno">2. </span><span class="content">The proposal</span><a class="self-link" href="#proposal"></a></h2>
+   <p>We propose the ability to overload this index-assignment operation, with an
+operator overload spelled as <code class="highlight"><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code>.</p>
+   <p>With this proposal, when a class overloads <code class="highlight"><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code>, expressions of the
+form <code class="highlight"><c- n>x</c-><c- p>[</c-><c- n>i</c-><c- p>]</c-> <c- o>=</c-> <c- n>y</c-></code>, where <code class="highlight"><c- n>x</c-></code> is an expression of that type, become equivalent to <code class="highlight"><c- n>x</c-><c- p>.</c-><c- k>operator</c-><c- p>[]</c-><c- o>=</c-><c- p>(</c-><c- n>i</c-><c- p>,</c-> <c- n>y</c-><c- p>)</c-></code>.  If the class does not overload <code class="highlight"><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code>, then the
+expression is evaluated as it would be before this proposal, using <code class="highlight"><c- k>operator</c-><c- p>[]</c-></code> and <code class="highlight"><c- k>operator</c-><c- o>=</c-></code> separately.</p>
+   <p>With this, the users of the class can use the natural syntax for
+insert-or-assign, and the implementer does not need to require
+default-constructibility, nor do they need to muck about with proxy types to
+obtain similar behaviour.</p>
+   <h2 class="heading settled" data-level="3" id="retrofitting"><span class="secno">3. </span><span class="content">Retrofitting existing types</span><a class="self-link" href="#retrofitting"></a></h2>
+   <p>This new operator overload can be added to the language without changing the
+standard library as it still provides benefits to class authors.</p>
+   <p>However, for the sake of completeness, we should consider the impact of
+retrofitting standard library types with <code class="highlight"><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code> overloads.</p>
+   <p>If we were to add <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>map</c-><c- o>::</c-><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code> and counterparts to the other
+associative containers, it would result in a behavioural change in existing
+code: expressions like <code class="highlight"><c- n>m</c-><c- p>[</c-><c- n>k</c-><c- p>]</c-> <c- o>=</c-> <c- n>v</c-><c- p>;</c-></code> would now no longer
+default-construct-then-assign, but instead perform only a
+copy/move-construction. This is an observable difference in behaviour, and,
+while one might expect no significant difference from this change for most
+types, it is possible that some existing code would break.</p>
+   <p>We therefore do not propose retrofitting the standard library with this new
+operator overload, unless there is desire to do so on the part of LEWG, and
+there is evidence that little to no code would break.</p>
+   <h2 class="heading settled" id="changelog"><span class="content">Appendix A: Revision History</span><a class="self-link" href="#changelog"></a></h2>
+   <h3 class="heading settled" id="changelog-r0"><span class="content">Revision 0 - 06 March 2019</span><a class="self-link" href="#changelog-r0"></a></h3>
+   <p>Drafting</p>
   </main>
 <script>
 (function() {
