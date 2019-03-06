@@ -1229,7 +1229,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 65b7ddcaf0f114f1f4fea72bbdeb983fe6805e0b" name="generator">
   <link href="https://isocpp.org/favicon.ico" rel="icon">
-  <meta content="f4997345f30765e66b68b85d470c0efadf36530d" name="document-revision">
+  <meta content="05077dd7034c92863014e165d3682ff3d7576a96" name="document-revision">
 <style>
 pre {
   margin-top: 0px;
@@ -1574,7 +1574,7 @@ standard library as it still provides benefits to class authors.</p>
 retrofitting standard library types with <code class="highlight"><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code> overloads.</p>
    <p>If we were to add <code class="highlight"><c- n>std</c-><c- o>::</c-><c- n>map</c-><c- o>::</c-><c- k>operator</c-><c- p>[]</c-><c- o>=</c-></code> and counterparts to the other
 associative containers, it would result in a behavioural change in existing
-code: expressions like <code class="highlight"><c- n>m</c-><c- p>[</c-><c- n>k</c-><c- p>]</c-> <c- o>=</c-> <c- n>v</c-><c- p>;</c-></code> would ,when the corresponding element does
+code: expressions like <code class="highlight"><c- n>m</c-><c- p>[</c-><c- n>k</c-><c- p>]</c-> <c- o>=</c-> <c- n>v</c-><c- p>;</c-></code> would, when the corresponding element does
 not exist, no longer default-construct-then-assign , but instead perform only a
 copy/move-construction. This is an observable difference in behaviour, and,
 while one might expect no significant difference from this change for most
